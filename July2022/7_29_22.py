@@ -1,4 +1,3 @@
-# https://leetcode.com/problems/isomorphic-strings/submissions/
 # https://leetcode.com/problems/isomorphic-strings/
 class Solution:
     def isIsomorphic(self, s, t):
