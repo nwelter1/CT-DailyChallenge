@@ -1,5 +1,5 @@
 # https://leetcode.com/problems/count-prefixes-of-a-given-string/submissions/
-from typing import List
+from typing import List 
 class Solution:
     def countPrefixes(self, words: List[str], s: str) -> int:
         count = 0
