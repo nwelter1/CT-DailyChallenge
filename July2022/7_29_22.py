@@ -10,7 +10,7 @@ class Solution:
             sd[s[i]] = t[i]
             td[t[i]] = s[i]
         return True
-	# commented version
+	# commented
     def isIsomorphicCommented(self, s, t):
 		# create 2 dicts for character mapping 
         sd, td = {}, {}
