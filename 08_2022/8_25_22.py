@@ -1,3 +1,4 @@
+from typing import List
 class Twitter:
     def __init__(self):
         self.users = {}
