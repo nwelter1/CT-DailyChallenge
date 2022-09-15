@@ -12,7 +12,7 @@ def nonConstructibleChange(coins):
 def commented(coins):
     # sort the coins in asc order
     # adding smaller coins first helps us find the lowest
-    # unavialable chsange in a linear fashion
+    # unavialable change in a linear fashion
 	coins.sort()
     # counter to start at 0 and stop whenever we reach amount
     # we can't construct
