@@ -1,11 +1,13 @@
 from typing import List
+# https://leetcode.com/problems/single-number/
 class Solution:
-    def singleNumber(self, nums: List[int]) -> int:
+    # O(n) Time | O(1) Space
+    def singleNumberBitWise(self, nums: List[int]) -> int:
         curr = 0
         for num in nums:
             curr ^= num
         return curr
-    def commented(self, nums: List[int]) -> int:
+    def bitwiseCommented(self, nums: List[int]) -> int:
         # set up starting number at 0
         curr = 0
         # loop over nums
@@ -19,3 +21,36 @@ class Solution:
             curr ^= num
         # since we have all duplicates that cancel each other out -- we are left with the single digit
         return curr
+    # O(n) Time | O(n) Space
+    def singleNumberSet(self, nums: List[int]) -> int:
+        curr = 0
+        seen = set()
+        for num in nums:
+            if num in seen:
+                curr -= num
+            else:
+                curr += num
+                seen.add(num)
+        return curr
+    def setCommented(self, nums: List[int]) -> int:
+        # establish counter for answer
+        curr = 0
+        # create empty set to track what we have seen with O(1) Time
+        seen = set()
+        # loop over nums
+        for num in nums:
+            # if we have seen this number, this is a dupe
+            # subtract it from the counter
+            if num in seen:
+                curr -= num
+            # if not, we will add to the set and add the number to the counter
+            else:
+                curr += num
+                seen.add(num)
+        # we'll be left with all nums cancelled out aside from the non-dupe
+        return curr
+
+print(
+Solution().singleNumberSet([2,2,1,1,3]))
+
+    
