@@ -1,4 +1,6 @@
 from typing import List
+# https://leetcode.com/problems/binary-search/
+# Time: O(log(n)) | Space O(1)
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         left = 0
