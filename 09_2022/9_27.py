@@ -3,31 +3,42 @@ class Solution:
     # O(n) Time | O(1) Space
     def checkRecord(self, s: str) -> bool:
         absent = 0
-        for i in range(len(s)):
-            if s[i] == 'A':
+        late_count = 0
+        for mark in s:
+            if mark == 'A':
                 absent += 1
+                late_count = 0
                 if absent ==2:
                     return False
-            elif s[i] == 'L' and i < len(s) - 2:
-                if s[i+1] == 'L' and s[i+2] == 'L':
+            elif mark == 'L':
+                late_count += 1
+                if late_count == 3:
                     return False
+            else:
+                late_count = 0
         return True
     def commented(self, s: str) -> bool:
-        # set up counter for number of absences
+        # set up counters for absences and consecutive L's
         absent = 0
-        # loop over each idx
-        for i in range(len(s)):
-            # if we have an absence -- update counter
-            if s[i] == 'A':
+        late_count = 0
+        # loop over every char
+        for mark in s:
+            # if a mark is == 'A', reset consecutive L's
+            # and add one to absences
+            if mark == 'A':
                 absent += 1
-                # if counter reaches 2, no longer eligible
+                late_count = 0
+                # 2 absences is ineligible
                 if absent == 2:
                     return False
-            # if we have an L with the possibility of having 2
-            # trailing Ls, check to see if we have 3 in a row
-            # if so, ineligible
-            elif s[i] == 'L' and i < len(s) - 2:
-                if s[i+1] == 'L' and s[i+2] == 'L':
+            # if we have an L, increment consecutive late count
+            elif mark == 'L':
+                late_count += 1
+                # if we hit 3 -- ineligible
+                if late_count == 3:
                     return False
-        # if we made it through, we're eligible!
+            # if we have a P, also reset consecutive late count
+            else:
+                late_count = 0
+        # we made it without triggering a false return, we're eligible!
         return True
