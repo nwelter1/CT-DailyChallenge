@@ -21,10 +21,10 @@ class Solution:
                 counter += 1
         # return final jewel count
         return counter
-    def commentedTimeSpace(self, jewels: str, stones: str) -> int:
+    def commentedTimeSpace(self, jewels: str, stones: str) -> int: # calling n == len(jewels), m == len(stones)
         counter = 0 # O(1) Time and Space
-        s = set(jewels) # O(n) Time and Space to create and store the set
+        s = set(jewels) # O(n) Time to loop over jewels to create the set and O(n) Space to store the set in memory
         for stone in stones: # O(m) Time to loop over stones
             if stone in s: # O(1) Time membership check for set
-                counter += 1 # O(1) time math operation
+                counter += 1 # O(1) Time/Space math operation
         return counter
